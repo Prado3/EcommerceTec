@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+// app.module.ts
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
@@ -10,9 +11,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProductsModule // Asegúrate de importar ProductsModule aquí
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -1,0 +1,11 @@
+<div *ngIf="product">
+    <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <p>Category: {{ product.category }}</p>
+    <p>Price: ${{ product.price }}</p>
+  </div>
+  <ng-template #loading>
+    <p>Cargando producto...</p>
+  </ng-template>
+  
