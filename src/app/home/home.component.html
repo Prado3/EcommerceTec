@@ -1,0 +1,15 @@
+<!-- home.component.html -->
+<div class="hero">
+  <h1>¡Bienvenido a Nuestra Tienda!</h1>
+  <button class="btn">Explorar Productos</button>
+</div>
+
+<div class="product-grid">
+  <h2>Productos</h2>
+  <div class="product-card" *ngFor="let product of featuredProducts">
+    <img [src]="product.image" alt="Producto" class="product-image" />
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.price | currency }}</p>
+    <button class="btn btn-primary">Agregar al Carrito</button>
+  </div>
+</div>

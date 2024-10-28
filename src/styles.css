@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+/* src/styles.css */
+
+body {
+    background-color: #f0f0f0; /* Color de fondo */
+    color: #333; /* Color del texto */
+  }
+  
+  h1 {
+    color: #007bff; /* Color de encabezados */
+  }
+  
+  
