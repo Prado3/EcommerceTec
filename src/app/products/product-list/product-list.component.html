@@ -1,16 +1,31 @@
-<div *ngIf="products.length > 0; else loading">
-    <div *ngFor="let product of products" class="product-item">
-      <a [routerLink]="['/products', product.id]"> <!-- Link to product detail page -->
+<div class="product-container">
+  <!-- Sidebar for categories -->
+  <div class="category-sidebar">
+    <h3>Categorías</h3>
+    <ul>
+      <li (click)="filterByCategory('all')">Todas las Categorías</li>
+      <li *ngFor="let category of categories" (click)="filterByCategory(category)">
+        {{ category }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Product catalog grid -->
+  <div *ngIf="filteredProducts.length > 0; else loading" class="product-catalog">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <a [routerLink]="['/products', product.id]">
         <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.description }}</p>
-        <p>Category: {{ product.category }}</p>
-        <p>Price: ${{ product.price }}</p>
+        <div class="product-info">
+          <h3>{{ product.title }}</h3>
+          <p class="product-price">Precio: ${{ product.price }}</p>
+        </div>
       </a>
     </div>
   </div>
-  
-  <ng-template #loading>
-    <p>Cargando productos...</p>
-  </ng-template>
+</div>
+
+<ng-template #loading>
+  <p>Cargando productos...</p>
+</ng-template>
+
   

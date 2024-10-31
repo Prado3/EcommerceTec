@@ -13,7 +13,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
   ],
   imports: [
     CommonModule,
-    HttpClientModule,       // Agrega HttpClientModule aquí
+    HttpClientModule,
     ProductsRoutingModule
   ]
 })

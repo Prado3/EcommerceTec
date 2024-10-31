@@ -12,7 +12,7 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductsModule // Asegúrate de importar ProductsModule aquí
+    ProductsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,10 +4,10 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' }, // Redirige la ruta principal a 'products'
+  { path: '', redirectTo: 'products', pathMatch: 'full' }, 
   { path: 'products', component: ProductListComponent },
-  { path: 'products/:id', component: ProductDetailComponent }, // Ruta para el detalle de producto
-  { path: '**', redirectTo: 'products' } // Ruta fallback
+  { path: 'products/:id', component: ProductDetailComponent }, 
+  { path: '**', redirectTo: 'products' } 
 ];
 
 @NgModule({
