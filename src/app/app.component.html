@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Tienda Angular</title>
-  <link rel="icon" href="assets/img/favicon.ico">
-</head>
-<body>
-<router-outlet></router-outlet>
-</body>
-</html>
+<!-- app.component.html -->
+<div class="app-container">
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/products">Productos</a></li>
+        <li><a routerLink="/cart">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet> <!-- Asegúrate de que este esté presente -->
+  </main>
+</div>

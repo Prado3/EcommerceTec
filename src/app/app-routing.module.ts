@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductListComponent } from './products/product-list/product-list.component';
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component'; // Asegúrate de que este componente esté creado
 
 const routes: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' }, // Redirige la ruta principal a 'products'
-  { path: 'products', component: ProductListComponent },
-  { path: 'products/:id', component: ProductDetailComponent }, // Ruta para el detalle de producto
-  { path: '**', redirectTo: 'products' } // Ruta fallback
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent }, // Ruta para el componente de pago
+  // Otras rutas...
 ];
 
 @NgModule({
