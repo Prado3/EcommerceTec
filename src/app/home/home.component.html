@@ -9,7 +9,6 @@
   <div class="product-card" *ngFor="let product of featuredProducts">
     <img [src]="product.image" alt="Producto" class="product-image" />
     <h3>{{ product.name }}</h3>
-    <p>{{ product.price | currency }}</p>
     <button class="btn btn-primary">Agregar al Carrito</button>
   </div>
 </div>

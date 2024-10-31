@@ -1,16 +1,23 @@
-// src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { HomeModule } from './home/home.module'; // Importa HomeModule
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+import { ProductsModule } from './products/products.module'; // Importa el ProductsModule
+import { HomeModule } from './home/home.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   imports: [
     BrowserModule,
-    HomeModule // Asegúrate de que HomeModule esté aquí
+    AppRoutingModule,
+    CoreModule,
+    HomeModule,
+    ProductsModule // Asegúrate de incluir ProductsModule aquí
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
