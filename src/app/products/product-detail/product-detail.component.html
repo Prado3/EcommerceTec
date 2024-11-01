@@ -1,12 +1,11 @@
 <div *ngIf="product">
-    <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
-    <p>Category: {{ product.category }}</p>
-    <p>Price: ${{ product.price }}</p>
-    <button class="btn" >Agregar al carrito</button>
-  </div>
-  <ng-template #loading>
-    <p>Cargando producto...</p>
-  </ng-template>
-  
+  <h2>{{ product.title }}</h2>
+  <img [src]="product.image" alt="{{ product.title }}" />
+  <p>{{ product.description }}</p>
+  <p>Price: ${{ product.price }}</p>
+  <button (click)="addToCart()">Agregar al carrito</button>
+</div>
+
+<div *ngIf="!product">
+  <p>Cargando producto...</p>
+</div>

@@ -1,16 +1,19 @@
 <div *ngIf="products.length > 0; else loading">
-    <div *ngFor="let product of products" class="product-item">
-      <a [routerLink]="['/products', product.id]"> <!-- Link to product detail page -->
-        <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.description }}</p>
-        <p>Category: {{ product.category }}</p>
-        <p>Price: ${{ product.price }}</p>
-      </a>
-    </div>
+  <div *ngFor="let product of products" class="product-item">
+    <a [routerLink]="['/products', product.id]">
+      <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.description }}</p>
+      <p>Category: {{ product.category }}</p>
+      <p>Price: ${{ product.price }}</p>
+    </a>
+    <button (click)="addToCart(product)">Agregar al carrito</button>
   </div>
-  
-  <ng-template #loading>
-    <p>Cargando productos...</p>
-  </ng-template>
-  
+</div>
+
+<ng-template #loading>
+  <p>Cargando productos...</p>
+</ng-template>
+
+<!-- Aquí se muestra el mensaje de éxito -->
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
