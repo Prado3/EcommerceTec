@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from './cart.service';
 
-// Ajusta la interfaz para que coincida con los datos de la API
+
 interface Product {
-  id: string; // Asegúrate de que id sea un string
+  id: string; 
   title: string; 
   price: number;
   quantity: number;
-  image: string; // Propiedad para mostrar la imagen
+  image: string; 
 }
 
 @Component({
@@ -71,7 +71,7 @@ export class CartComponent implements OnInit {
 
   proceedToCheckout() {
     if (this.cartItems.length > 0) {
-      this.router.navigate(['/checkout']); // Redirige a la página de pago
+      this.router.navigate(['/checkout']); 
     } else {
       this.errorMessage = 'Tu carrito está vacío. Agrega productos antes de proceder.';
     }

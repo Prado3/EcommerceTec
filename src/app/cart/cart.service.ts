@@ -10,43 +10,41 @@ interface Product {
 }
 
 @Injectable({
-  providedIn: 'root', // Esto lo hace disponible en toda la aplicación
+  providedIn: 'root', 
 })
 export class CartService {
-  private cartItems: Product[] = []; // Array para almacenar los productos en el carrito
-  private cartSubject = new BehaviorSubject<Product[]>(this.cartItems); // Sujeto para manejar el estado del carrito
-  cart$ = this.cartSubject.asObservable(); // Observable para que otros componentes puedan suscribirse a los cambios del carrito
+  private cartItems: Product[] = []; 
+  private cartSubject = new BehaviorSubject<Product[]>(this.cartItems);
+  cart$ = this.cartSubject.asObservable(); 
 
   addToCart(product: Product) {
     const existingProduct = this.cartItems.find(item => item.id === product.id);
     if (existingProduct) {
-      existingProduct.quantity++; // Aumenta la cantidad si el producto ya está en el carrito
+      existingProduct.quantity++; 
     } else {
-      this.cartItems.push({ ...product, quantity: 1 }); // Agrega el producto nuevo con cantidad 1
+      this.cartItems.push({ ...product, quantity: 1 }); 
     }
-    this.cartSubject.next(this.cartItems); // Notifica a los suscriptores sobre el cambio
+    this.cartSubject.next(this.cartItems); 
   }
 
   removeFromCart(product: Product) {
-    this.cartItems = this.cartItems.filter(item => item.id !== product.id); // Elimina el producto del carrito
-    this.cartSubject.next(this.cartItems); // Notifica a los suscriptores sobre el cambio
+    this.cartItems = this.cartItems.filter(item => item.id !== product.id); 
+    this.cartSubject.next(this.cartItems); 
   }
 
   updateQuantity(product: Product, quantity: number) {
     const existingProduct = this.cartItems.find(item => item.id === product.id);
     if (existingProduct) {
-      existingProduct.quantity = quantity; // Actualiza la cantidad del producto
-      this.cartSubject.next(this.cartItems); // Notifica a los suscriptores sobre el cambio
+      existingProduct.quantity = quantity; 
+      this.cartSubject.next(this.cartItems); 
     }
   }
 
   getTotal(): number {
-    // Calcula el total del carrito
     return this.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
   }
 
   saveCart(): Observable<string> {
-    // Simula guardar el carrito y devuelve un mensaje
     return of('Carrito guardado exitosamente');
   }
 }

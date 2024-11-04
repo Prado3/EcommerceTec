@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     CommonModule,
-    RouterModule // Asegúrate de incluir RouterModule aquí
+    RouterModule 
   ],
   exports: [
     HeaderComponent,

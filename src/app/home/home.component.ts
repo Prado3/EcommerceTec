@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductsService } from '../products/products.service'; // Import your service
+import { ProductsService } from '../products/products.service'; 
 
 @Component({
   selector: 'app-home',
@@ -17,9 +17,8 @@ export class HomeComponent implements OnInit {
   }
 
   getFeaturedProducts(): void {
-    // Fetch a limited number of products, e.g., the first 3
     this.productService.getProducts().subscribe(products => {
-      this.featuredProducts = products.slice(0, 3); // Adjust the number as needed
+      this.featuredProducts = products.slice(0, 3); 
     });
   }
 
@@ -30,5 +29,6 @@ export class HomeComponent implements OnInit {
   navigateToSomeRoute(id: string) {
     this.router.navigate(['/products', id]);
   }
+ 
 
 }

@@ -1,5 +1,4 @@
 <div class="product-container">
-  <!-- Sidebar for categories -->
   <div class="category-sidebar">
     <h3>Categorías</h3>
     <ul>
@@ -10,7 +9,7 @@
     </ul>
   </div>
 
-  <!-- Ordenar por precio -->
+  
   <div class="sort-options">
     <label for="sort-price">Ordenar por precio:</label>
     <select id="sort-price" (change)="sortByPriceEvent($event)">
@@ -21,7 +20,7 @@
   
   
 
-  <!-- Product catalog grid -->
+  
   <div *ngIf="filteredProducts.length > 0; else loading" class="product-catalog">
     <div *ngFor="let product of filteredProducts" class="product-card">
       <a [routerLink]="['/products', product.id]">

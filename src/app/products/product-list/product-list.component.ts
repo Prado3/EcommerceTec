@@ -11,7 +11,7 @@ export class ProductListComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
   categories: string[] = [];
-  successMessage: string = ''; // Mensaje de éxito
+  successMessage: string = '';
 
   constructor(private productsService: ProductsService, private cartService: CartService) {}
 
@@ -19,8 +19,8 @@ export class ProductListComponent implements OnInit {
     this.productsService.getProducts().subscribe(
       (data) => {
         this.products = data;
-        this.filteredProducts = data; // Show all products initially
-        this.categories = [...new Set(data.map(product => product.category))]; // Extract unique categories
+        this.filteredProducts = data; 
+        this.categories = [...new Set(data.map(product => product.category))]; 
       },
       (error) => {
         console.error('Error al cargar los productos:', error);
@@ -36,7 +36,7 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  // Ordenar por precio
+
   sortByPrice(order: string): void {
     if (order === 'asc') {
       this.filteredProducts.sort((a, b) => a.price - b.price);
@@ -52,10 +52,9 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product); // Agrega el producto al carrito
-    this.successMessage = 'Producto agregado al carrito exitosamente!'; // Actualiza el mensaje de éxito
+    this.cartService.addToCart(product); 
+    this.successMessage = 'Producto agregado al carrito exitosamente!'; 
 
-    // Opcional: Ocultar el mensaje después de 3 segundos
     setTimeout(() => {
       this.successMessage = '';
     }, 3000);

@@ -3,11 +3,11 @@
   <button class="btn" (click)="goToProducts()">Explorar Productos</button>
 </div>
 
-<!-- Sección de Productos Destacados -->
+
 <div class="product-grid">
   <h2>Productos Destacados</h2>
-  <div class="product-card" *ngFor="let product of featuredProducts" (click)="navigateToSomeRoute(product.id)" >
-    <img [src]="product.image" alt="Producto" class="product-image" />
+  <div class="product-card" *ngFor="let product of featuredProducts">
+    <img [src]="product.image" alt="Producto" class="product-image" (click)="navigateToSomeRoute(product.id)" />
     <h3>{{ product.title }}</h3>
     <p>Precio: ${{ product.price }}</p>
     <button class="btn btn-primary">Agregar al Carrito</button>

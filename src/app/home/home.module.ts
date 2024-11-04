@@ -1,15 +1,16 @@
-// src/app/home/home.module.ts
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importa CommonModule para poder usar el pipe 'currency'
+import { CommonModule } from '@angular/common'; 
 import { HomeComponent } from './home.component';
 import { ProductsModule } from '../products/products.module';
+import { CartModule } from '../cart/cart.module';
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    ProductsModule // Asegúrate de incluir CommonModule aquí
+    ProductsModule,
+    CartModule
   ],
-  exports: [HomeComponent] // Exporta HomeComponent si lo necesitas en otros módulos
+  exports: [HomeComponent] 
 })
 export class HomeModule { }
