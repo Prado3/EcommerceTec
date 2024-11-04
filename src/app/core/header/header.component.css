@@ -1,10 +1,14 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--primary-color);
-    padding: 15px 20px;
-  }
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 15px 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px; /* Espacio entre botones */
+}
   
   .header input {
     padding: 8px;
@@ -22,4 +26,16 @@
   .header nav a:hover {
     text-decoration: underline;
   }
+  .logo {
+    font-size: 1.5rem;
+    color: #ffffff; /* Cambia el color si necesitas */
+  }
   
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .bi-shop {
+    font-size: 1.8rem; /* Tamaño del icono de la tienda */
+  }
