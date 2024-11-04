@@ -75,4 +75,9 @@
   }
   
   
-    
+    .success-message {
+    color: green;          /* Color del texto del mensaje */
+    font-weight: bold;     /* Hacer el texto en negrita */
+    margin-top: 10px;     /* Espacio superior para separar del contenido */
+  }
+  

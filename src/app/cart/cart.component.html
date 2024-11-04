@@ -1,0 +1,22 @@
+<div class="cart-container">
+  <h2>Tu Carrito</h2>
+
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.image" alt="{{ item.title }}" width="50" height="50">
+    <div>
+      <h4>{{ item.title }}</h4>
+      <p>Precio: ${{ item.price }} - Cantidad: {{ item.quantity }}</p>
+      <button (click)="increaseQuantity(item)">+</button>
+      <button (click)="decreaseQuantity(item)">-</button>
+      <button (click)="removeItem(item)">Eliminar</button>
+    </div>
+  </div>
+
+  <h3>Total: ${{ total }}</h3>
+
+  <button (click)="saveCart()">Guardar carrito</button>
+  <button (click)="proceedToCheckout()">Proceder al pago</button>
+
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>

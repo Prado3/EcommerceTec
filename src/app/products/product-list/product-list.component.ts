@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
+import { CartService } from '../../cart/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,8 +11,9 @@ export class ProductListComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
   categories: string[] = [];
+  successMessage: string = ''; // Mensaje de éxito
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService, private cartService: CartService) {}
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe(
@@ -43,9 +45,19 @@ export class ProductListComponent implements OnInit {
     }
   }
 
+
   sortByPriceEvent(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     this.sortByPrice(selectElement.value);
   }
-  
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product); // Agrega el producto al carrito
+    this.successMessage = 'Producto agregado al carrito exitosamente!'; // Actualiza el mensaje de éxito
+
+    // Opcional: Ocultar el mensaje después de 3 segundos
+    setTimeout(() => {
+      this.successMessage = '';
+    }, 3000);
+  }
 }
