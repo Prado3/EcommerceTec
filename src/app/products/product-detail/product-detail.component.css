@@ -1,0 +1,64 @@
+/* Estilo para el contenedor principal */
+.product-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo para la imagen del producto */
+  .product-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  /* Estilo para el título */
+  .product-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Estilo para la descripción */
+  .product-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo para la categoría y precio */
+  .product-info {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Estilo para el botón */
+  .btn {
+    padding: 12px 24px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  

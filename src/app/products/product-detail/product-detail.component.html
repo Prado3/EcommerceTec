@@ -1,12 +1,16 @@
-<div *ngIf="product">
-    <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
-    <p>Category: {{ product.category }}</p>
-    <p>Price: ${{ product.price }}</p>
-    <button class="btn" >Agregar al carrito</button>
-  </div>
-  <ng-template #loading>
-    <p>Cargando producto...</p>
-  </ng-template>
+<div *ngIf="product" class="product-detail-container">
+  <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
   
+  <h2 class="product-title">{{ product.title }}</h2>
+  
+  <p class="product-description">{{ product.description }}</p>
+  
+  <p class="product-info">Categoría: {{ product.category }}</p>
+  <p class="product-info">Precio: ${{ product.price }}</p>
+  
+  <button class="btn">Agregar al carrito</button>
+</div>
+
+<ng-template #loading>
+  <p>Cargando producto...</p>
+</ng-template>
