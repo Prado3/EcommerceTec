@@ -6,6 +6,7 @@
   text-align: center;
 }
 
+
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -67,3 +68,4 @@
   border-top: 1px solid #34495e;
   padding-top: 10px;
 }
+

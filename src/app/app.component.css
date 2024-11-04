@@ -1,4 +1,17 @@
 body {
-    background-color: #f0f0f0; /* Un color gris claro */
+    background-color: #3c58b6; 
   }
   
+  main{
+        background-color: darkgray;
+
+  }
+
+  .content {
+    flex: 1; /* Esto empuja el footer hacia abajo */
+  }
+  
+  footer {
+    position: relative;
+    width: 100%;
+  }
