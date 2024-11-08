@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
-import { CartRoutingModule } from './cart-routing.module';
-import { CartService } from './cart.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [CartComponent],
+  declarations: [
+    CartComponent
+  ],
   imports: [
     CommonModule,
-    CartRoutingModule
+    RouterModule // Asegúrate de que RouterModule esté aquí si necesitas rutas
   ],
-  providers: [CartService]
+  exports: [CartComponent]
 })
-export class CartModule {}
+export class CartModule { }
