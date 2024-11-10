@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { map, catchError, switchMap } from 'rxjs/operators';
-
+import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
+import { map, catchError, tap, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +9,41 @@ import { map, catchError, switchMap } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://localhost:3000/users'; // Cambia esto por la URL de tu backend
 
+  // Subjects para manejar el estado de autenticación y el nombre del usuario
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  private userNameSubject = new BehaviorSubject<string | null>(null);
+
+  // Observables públicos
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  userName$ = this.userNameSubject.asObservable();
+
   constructor(private http: HttpClient) {}
 
-  // Método login que verifica si el usuario existe
   login(email: string, password: string): Observable<boolean> {
-    // Verifica si el usuario existe usando HttpParams
     return this.http.get<any[]>(this.apiUrl, {
       params: new HttpParams().set('email', email).set('password', password)
     }).pipe(
+      tap(users => {
+        if (users.length > 0) { // Si se encuentra al usuario
+          const user = users[0];
+          this.isLoggedInSubject.next(true);
+          this.userNameSubject.next(user.name);
+        } else {
+          this.isLoggedInSubject.next(false);
+        }
+      }),
       map(users => users.length > 0), // Si el array tiene algún elemento, el usuario existe
-      catchError(() => of(false)) // En caso de error, devuelve 'false'
+      switchMap(isLoggedIn => {
+        if (isLoggedIn) {
+          return of(true);
+        } else {
+          return throwError(() => new Error('Usuario o contraseña incorrecto'));
+        }
+      }),
+      catchError(() => of(false)) // En caso de error en la comunicación, devuelve 'false'
     );
   }
+  
 
   register(user: { email: string; password: string; name: string; lastName: string }): Observable<any> {
     return this.http.get<any[]>(this.apiUrl, {
@@ -39,5 +61,10 @@ export class AuthService {
         return throwError(error);
       })
     );
-  }  
+  }
+
+  logout(): void {
+    this.isLoggedInSubject.next(false);
+    this.userNameSubject.next(null);
+  }
 }

@@ -1,5 +1,5 @@
-<div class="product-container">
-  <div class="category-sidebar">
+<div class="d-flex mt-4">
+  <div class="category-sidebar me-4">
     <h3>Categorías</h3>
     <ul>
       <li (click)="filterByCategory('all')">Todas las Categorías</li>
@@ -9,22 +9,20 @@
     </ul>
   </div>
 
-  
-  <div class="sort-options">
+  <!-- Sorting Options -->
+  <div class="sort-options ms-4">
     <label for="sort-price">Ordenar por precio:</label>
-    <select id="sort-price" (change)="sortByPriceEvent($event)">
+    <select id="sort-price" (change)="sortByPriceEvent($event)" class="form-select">
       <option value="asc">Ascendente</option>
       <option value="desc">Descendente</option>
     </select>
   </div>
-  
-  
 
-  
-  <div *ngIf="filteredProducts.length > 0; else loading" class="product-catalog">
+  <!-- Product Display -->
+  <div *ngIf="filteredProducts.length > 0; else loading" class="product-catalog ms-4">
     <div *ngFor="let product of filteredProducts" class="product-card">
       <a [routerLink]="['/products', product.id]">
-        <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
+        <img [src]="product.image" alt="{{ product.title }}" class="product-image img-fluid" />
         <div class="product-info">
           <h3>{{ product.title }}</h3>
           <p class="product-price">Precio: ${{ product.price }}</p>
@@ -34,6 +32,7 @@
   </div>
 </div>
 
+
 <ng-template #loading>
-  <p>Cargando productos...</p>
+<p>Cargando productos...</p>
 </ng-template>

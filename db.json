@@ -27,33 +27,46 @@
       "password": "chau1234",
       "name": "Hola",
       "lastName": "Chau"
+    },
+    {
+      "id": "c131",
+      "email": "lukasprado8@gmail.com",
+      "password": "123456",
+      "name": "lucas",
+      "lastName": "prado"
+    },
+    {
+      "id": "c736",
+      "email": "lukasprado@gmail.com",
+      "password": "123456",
+      "name": "carlos",
+      "lastName": "prado"
     }
   ],
-    
   "cards": [
-      {
-        "id": 1,
-        "holder": "Juan Pérez",
-        "number": "4111111111111111",
-        "expiration": "12/25",
-        "cvv": "123",
-        "type": "Visa"
-      },
-      {
-        "id": 2,
-        "holder": "Ana García",
-        "number": "5500000000000004",
-        "expiration": "11/24",
-        "cvv": "456",
-        "type": "MasterCard"
-      },
-      {
-        "id": 3,
-        "holder": "Carlos López",
-        "number": "340000000000009",
-        "expiration": "05/26",
-        "cvv": "789",
-        "type": "American Express"
-      }
-    ]
+    {
+      "id": "1",
+      "holder": "Juan Pérez",
+      "number": "4111111111111111",
+      "expiration": "12/25",
+      "cvv": "123",
+      "type": "Visa"
+    },
+    {
+      "id": "2",
+      "holder": "Ana García",
+      "number": "5500000000000004",
+      "expiration": "11/24",
+      "cvv": "456",
+      "type": "MasterCard"
+    },
+    {
+      "id": "3",
+      "holder": "Carlos López",
+      "number": "340000000000009",
+      "expiration": "05/26",
+      "cvv": "789",
+      "type": "American Express"
+    }
+  ]
 }
