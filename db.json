@@ -29,11 +29,18 @@
       "lastName": "Chau"
     },
     {
-      "id": "bbe2",
-      "email": "pepito@gmail.com",
+      "id": "c131",
+      "email": "lukasprado8@gmail.com",
       "password": "123456",
-      "name": "Juan",
-      "lastName": "Pepito"
+      "name": "lucas",
+      "lastName": "prado"
+    },
+    {
+      "id": "c736",
+      "email": "lukasprado@gmail.com",
+      "password": "123456",
+      "name": "carlos",
+      "lastName": "prado"
     }
   ],
   "cards": [
@@ -62,4 +69,4 @@
       "type": "American Express"
     }
   ]
-},
+}

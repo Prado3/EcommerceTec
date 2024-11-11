@@ -7,7 +7,7 @@
 
 .buttons {
   display: flex;
-  gap: 10px; /* Espacio entre botones */
+  gap: 10px; 
 }
   
   .header input {
@@ -28,7 +28,7 @@
   }
   .logo {
     font-size: 1.5rem;
-    color: #ffffff; /* Cambia el color si necesitas */
+    color: #ffffff; 
   }
   
   .buttons {
@@ -38,4 +38,9 @@
   
   .bi-shop {
     font-size: 1.8rem; /* Tamaño del icono de la tienda */
+  }
+
+  .span {
+    font-size: 1.5rem;
+    color: #ffffff;
   }
