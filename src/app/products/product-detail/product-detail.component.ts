@@ -22,11 +22,12 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const productId = this.route.snapshot.paramMap.get('id'); 
+    const productId = this.route.snapshot.paramMap.get('id'); // Obtener el ID del parámetro
 
-    if (productId) { 
+    // Comprobar que productId no es null y manejarlo adecuadamente
+    if (productId) { // Comprobar que productId no es null
       this.productsService.getProductById(productId).subscribe(product => {
-        this.product = product;
+        this.product = product; // Asignar el producto obtenido
       }, error => {
         console.error('Error al cargar el producto:', error);
       });

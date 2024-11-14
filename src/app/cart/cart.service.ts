@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 interface Product {
   id: string;
@@ -9,6 +11,15 @@ interface Product {
   image: string;
 }
 
+interface Card {
+  id: string;
+  holder: string;
+  number: string;
+  expiration: string;
+  cvv: string;
+  type: string;
+}
+
 @Injectable({
   providedIn: 'root', 
 })
@@ -16,6 +27,10 @@ export class CartService {
   private cartItems: Product[] = []; 
   private cartSubject = new BehaviorSubject<Product[]>(this.cartItems);
   cart$ = this.cartSubject.asObservable(); 
+
+  private cardsUrl = 'http://localhost:3000/cards'; 
+
+  constructor(private http: HttpClient) {}
 
   addToCart(product: Product) {
     const existingProduct = this.cartItems.find(item => item.id === product.id);
@@ -46,5 +61,19 @@ export class CartService {
 
   saveCart(): Observable<string> {
     return of('Carrito guardado exitosamente');
+  }
+
+  
+  validateCard(card: Partial<Card>): Observable<boolean> {
+    return this.http.get<Card[]>(this.cardsUrl).pipe(
+      map(cards => 
+        cards.some(savedCard => 
+          savedCard.holder === card.holder &&
+          savedCard.number === card.number &&
+          savedCard.expiration === card.expiration &&
+          savedCard.cvv === card.cvv
+        )
+      )
+    );
   }
 }

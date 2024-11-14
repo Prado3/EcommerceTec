@@ -63,6 +63,14 @@
       "name": "Juanceto",
       "lastName": "juanceto",
       "dni": "11474747"
+    },
+    {
+      "id": "c5c9",
+      "email": "lukasprado8@gmail.comm",
+      "password": "123456",
+      "name": "lucas",
+      "lastName": "prado",
+      "dni": "41669016"
     }
   ],
   "cards": [

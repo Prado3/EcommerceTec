@@ -1,0 +1,47 @@
+<div class="checkout-container">
+  <h2>Formulario de Pago</h2>
+
+  <form (ngSubmit)="onSubmit($event)">
+    <h3>Dirección de Envío</h3>
+    <div>
+      <label>Dirección:</label>
+      <input type="text" [(ngModel)]="shippingAddress" name="address" required />
+    </div>
+    <div>
+      <label>Ciudad:</label>
+      <input type="text" [(ngModel)]="city" name="city" required />
+    </div>
+    <div>
+      <label>Código Postal:</label>
+      <input type="text" [(ngModel)]="postalCode" name="postalCode" required />
+    </div>
+
+    <h3>Datos de la Tarjeta</h3>
+    <div>
+      <label>Titular de la tarjeta:</label>
+      <input type="text" [(ngModel)]="cardHolder" name="cardHolder" required />
+    </div>
+    <div>
+      <label>Número de tarjeta:</label>
+      <input type="text" [(ngModel)]="cardNumber" name="cardNumber" required />
+    </div>
+    <div>
+      <label>Fecha de Expiración (MM/AA):</label>
+      <input type="text" [(ngModel)]="expiration" name="expiration" required />
+    </div>
+    <div>
+      <label>CVV:</label>
+      <input type="text" [(ngModel)]="cvv" name="cvv" required />
+    </div>
+
+    <h3>Total: ${{ total }}</h3>
+
+    <button type="submit">Confirmar Pago</button>
+
+    
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+   
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+</div>
