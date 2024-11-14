@@ -1,4 +1,3 @@
-// product-detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
@@ -22,12 +21,11 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const productId = this.route.snapshot.paramMap.get('id'); // Obtener el ID del parámetro
+    const productId = this.route.snapshot.paramMap.get('id'); 
 
-    // Comprobar que productId no es null y manejarlo adecuadamente
-    if (productId) { // Comprobar que productId no es null
+    if (productId) { 
       this.productsService.getProductById(productId).subscribe(product => {
-        this.product = product; // Asignar el producto obtenido
+        this.product = product; 
       }, error => {
         console.error('Error al cargar el producto:', error);
       });

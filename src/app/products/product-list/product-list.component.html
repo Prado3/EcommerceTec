@@ -9,7 +9,6 @@
     </ul>
   </div>
 
-  <!-- Sorting Options -->
   <div class="sort-options ms-4">
     <label for="sort-price">Ordenar por precio:</label>
     <select id="sort-price" (change)="sortByPriceEvent($event)" class="form-select">
@@ -18,7 +17,6 @@
     </select>
   </div>
 
-  <!-- Product Display -->
   <div *ngIf="filteredProducts.length > 0; else loading" class="product-catalog ms-4">
     <div *ngFor="let product of filteredProducts" class="product-card">
       <a [routerLink]="['/products', product.id]">
