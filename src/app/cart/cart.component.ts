@@ -71,9 +71,12 @@ export class CartComponent implements OnInit {
 
   proceedToCheckout() {
     if (this.cartItems.length > 0) {
-      this.router.navigate(['/checkout']); 
+      this.router.navigate(['/checkout'], {
+        state: { total: this.total } 
+      });
     } else {
       this.errorMessage = 'Tu carrito está vacío. Agrega productos antes de proceder.';
     }
   }
+
 }
