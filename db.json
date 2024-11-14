@@ -5,48 +5,70 @@
       "email": "user1@example.com",
       "password": "password123",
       "firstName": "John",
-      "lastName": "Doe"
+      "lastName": "Doe",
+      "dni": "12123456"
     },
     {
       "id": "2",
       "email": "user2@example.com",
       "password": "password456",
       "firstName": "Jane",
-      "lastName": "Smith"
+      "lastName": "Smith",
+      "dni": "34098765"
     },
     {
       "id": "309e",
       "email": "ldldld@gmail.com",
       "password": "hola1234",
       "name": "Luciano",
-      "lastName": "Delmonte"
+      "lastName": "Delmonte",
+      "dni": "21653876"
     },
     {
       "id": "6c17",
       "email": "ooooo@gmail.com",
       "password": "chau1234",
       "name": "Hola",
-      "lastName": "Chau"
+      "lastName": "Chau",
+      "dni": "42345794"
     },
     {
       "id": "c131",
       "email": "lukasprado8@gmail.com",
       "password": "123456",
       "name": "lucas",
-      "lastName": "prado"
+      "lastName": "prado",
+      "dni": "18906265"
     },
     {
       "id": "c736",
       "email": "lukasprado@gmail.com",
       "password": "123456",
       "name": "carlos",
-      "lastName": "prado"
+      "lastName": "prado",
+      "dni": "22345691"
+    },
+    {
+      "id": "4364",
+      "email": "user112@example.com",
+      "password": "123456789",
+      "name": "Juanceto",
+      "lastName": "Juanceto",
+      "dni": "38678543"
+    },
+    {
+      "id": "221f",
+      "email": "juanceto14@gmail.com",
+      "password": "holachau123",
+      "name": "Juanceto",
+      "lastName": "juanceto",
+      "dni": "11474747"
     }
   ],
   "cards": [
     {
       "id": "1",
-      "holder": "Juan Pérez",
+      "holder": "John Doe",
       "number": "4111111111111111",
       "expiration": "12/25",
       "cvv": "123",

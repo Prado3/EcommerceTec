@@ -14,13 +14,14 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router // Inyección del servicio Router
+    private router: Router
   ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern('^[0-9]{1,8}$')]]
     });
   }
 
@@ -29,7 +30,7 @@ export class RegisterComponent {
       this.authService.register(this.registerForm.value).subscribe({
         next: () => {
           alert('Usuario registrado con éxito');
-          this.router.navigate(['/login']); // Navegar a la página de inicio de sesión
+          this.router.navigate(['/login']);
         },
         error: err => {
           this.registrationError = err.message;

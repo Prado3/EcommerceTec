@@ -19,6 +19,15 @@
     </div>
 
     <div class="form-group">
+      <label for="dni">DNI:</label>
+      <input id="dni" type="text" formControlName="dni" class="form-control" maxlength="8" />
+      <div *ngIf="registerForm.get('dni')?.invalid && registerForm.get('dni')?.touched" class="error">
+        DNI es requerido y debe ser numérico con un máximo de 8 dígitos.
+      </div>
+    </div>
+    
+
+    <div class="form-group">
       <label for="email">Email:</label>
       <input id="email" type="email" formControlName="email" class="form-control" />
       <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
