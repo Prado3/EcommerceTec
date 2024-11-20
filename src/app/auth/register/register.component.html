@@ -44,6 +44,9 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Registrarse</button>
+    <div *ngIf="message" [style.color]="messageColor" class="message">
+      {{ message }}
+    </div>
 
     <div *ngIf="registrationError" class="error-message">
       {{ registrationError }}

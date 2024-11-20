@@ -9,6 +9,9 @@
   <p class="product-info">Precio: ${{ product.price }}</p>
   
   <button class="btn" (click)="addToCart()">Agregar al carrito</button>
+  <div *ngIf="message" [style.color]="messageColor" class="message">
+    {{ message }}
+  </div>
 </div>
 
 <ng-template #loading>

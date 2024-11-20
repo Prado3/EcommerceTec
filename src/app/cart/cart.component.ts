@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from './cart.service';
 
-
 interface Product {
-  id: string; 
-  title: string; 
+  id: string;
+  title: string;
   price: number;
   quantity: number;
-  image: string; 
+  image: string;
 }
 
 @Component({
@@ -68,15 +67,20 @@ export class CartComponent implements OnInit {
       }
     );
   }
+  clearCart() {
+    this.cartService.clearCart();
+    this.successMessage = 'Carrito vaciado exitosamente!';
+    this.errorMessage = '';
+  }
+  
 
   proceedToCheckout() {
     if (this.cartItems.length > 0) {
       this.router.navigate(['/checkout'], {
-        state: { total: this.total } 
+        state: { total: this.total }
       });
     } else {
       this.errorMessage = 'Tu carrito está vacío. Agrega productos antes de proceder.';
     }
   }
-
 }

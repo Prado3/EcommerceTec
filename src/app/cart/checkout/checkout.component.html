@@ -1,47 +1,97 @@
-<div class="checkout-container">
+<div class="checkout-container" *ngIf="!isPaymentSuccessful">
   <h2>Formulario de Pago</h2>
 
-  <form (ngSubmit)="onSubmit($event)">
-    <h3>Dirección de Envío</h3>
-    <div>
-      <label>Dirección:</label>
-      <input type="text" [(ngModel)]="shippingAddress" name="address" required />
-    </div>
-    <div>
-      <label>Ciudad:</label>
-      <input type="text" [(ngModel)]="city" name="city" required />
-    </div>
-    <div>
-      <label>Código Postal:</label>
-      <input type="text" [(ngModel)]="postalCode" name="postalCode" required />
-    </div>
-
-    <h3>Datos de la Tarjeta</h3>
-    <div>
-      <label>Titular de la tarjeta:</label>
-      <input type="text" [(ngModel)]="cardHolder" name="cardHolder" required />
-    </div>
-    <div>
-      <label>Número de tarjeta:</label>
-      <input type="text" [(ngModel)]="cardNumber" name="cardNumber" required />
-    </div>
-    <div>
-      <label>Fecha de Expiración (MM/AA):</label>
-      <input type="text" [(ngModel)]="expiration" name="expiration" required />
-    </div>
-    <div>
-      <label>CVV:</label>
-      <input type="text" [(ngModel)]="cvv" name="cvv" required />
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="section">
+      <h3>Datos de Envío</h3>
+      
+      <div>
+        <label for="shippingAddress">Dirección de Envío</label>
+        <input id="shippingAddress" formControlName="shippingAddress" type="text" />
+        <div *ngIf="checkoutForm.get('shippingAddress')?.invalid && checkoutForm.get('shippingAddress')?.touched" class="error-message">
+          La dirección es obligatoria.
+        </div>
+      </div>
+      
+      <div>
+        <label for="city">Ciudad</label>
+        <input id="city" formControlName="city" type="text" />
+        <div *ngIf="checkoutForm.get('city')?.invalid && checkoutForm.get('city')?.touched" class="error-message">
+          La ciudad es obligatoria.
+        </div>
+      </div>
+      
+      <div>
+        <label for="postalCode">Código Postal</label>
+        <input id="postalCode" formControlName="postalCode" type="text" />
+        <div *ngIf="checkoutForm.get('postalCode')?.invalid && checkoutForm.get('postalCode')?.touched" class="error-message">
+          El código postal es obligatorio.
+        </div>
+      </div>
     </div>
 
-    <h3>Total: ${{ total }}</h3>
+    <div class="section">
+      <h3>Datos de Tarjeta</h3>
+      
+      <div>
+        <label for="cardHolder">Titular de la tarjeta</label>
+        <input id="cardHolder" formControlName="cardHolder" type="text" />
+        <div *ngIf="checkoutForm.get('cardHolder')?.invalid && checkoutForm.get('cardHolder')?.touched" class="error-message">
+          El titular de la tarjeta es obligatorio.
+        </div>
+      </div>
 
-    <button type="submit">Confirmar Pago</button>
+      <div>
+        <label for="cardNumber">Número de tarjeta</label>
+        <input id="cardNumber" formControlName="cardNumber" type="text" />
+        <div *ngIf="checkoutForm.get('cardNumber')?.invalid && checkoutForm.get('cardNumber')?.touched" class="error-message">
+          El número de tarjeta debe tener 16 dígitos.
+        </div>
+      </div>
 
-    
-    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+      <div>
+        <label for="expiration">Fecha de Expiración</label>
+        <input id="expiration" formControlName="expiration" type="text" />
+        <div *ngIf="checkoutForm.get('expiration')?.invalid && checkoutForm.get('expiration')?.touched" class="error-message">
+          El formato de expiración es MM/AA.
+        </div>
+      </div>
 
-   
+      <div>
+        <label for="cvv">CVV</label>
+        <input id="cvv" formControlName="cvv" type="text" />
+        <div *ngIf="checkoutForm.get('cvv')?.invalid && checkoutForm.get('cvv')?.touched" class="error-message">
+          El CVV debe tener 3 dígitos.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Total a pagar</h3>
+      <p><strong>Total:</strong> ${{ total }}</p>
+    </div>
+
+    <button type="submit">Pagar</button>
+
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
   </form>
+</div>
+
+<div *ngIf="isPaymentSuccessful" class="receipt-container">
+  <h3>Recibo de Pago</h3>
+  <p class="success-message">¡Pago exitoso! Se le enviará un email con las instrucciones de envío.</p>
+  <div class="receipt-details">
+    <p><strong>Dirección de Envío:</strong> {{ paymentReceipt.shippingAddress }}</p>
+    <p><strong>Ciudad:</strong> {{ paymentReceipt.city }}</p>
+    <p><strong>Código Postal:</strong> {{ paymentReceipt.postalCode }}</p>
+    <p><strong>Productos:</strong></p>
+    <ul>
+      <li *ngFor="let product of paymentReceipt.products">
+        {{ product.name }} (x{{ product.quantity }})
+      </li>
+    </ul>
+    <p><strong>Total:</strong> ${{ paymentReceipt.total }}</p>
+    <p><strong>Número de comprobante:</strong> {{ paymentReceipt.receiptNumber }}</p>
+  </div>
 </div>

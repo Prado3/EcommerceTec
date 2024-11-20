@@ -12,6 +12,8 @@ import { AuthService } from '../../auth/auth.service';
 export class ProductDetailComponent implements OnInit {
   product: any; 
   isLoggedIn = false;
+  message: string = ''; 
+  messageColor: string = ''; 
 
   constructor(
     private productsService: ProductsService,
@@ -36,10 +38,16 @@ export class ProductDetailComponent implements OnInit {
 
   addToCart() {
     if (!this.isLoggedIn) {
-      alert('Debes iniciar sesión o registrarte para agregar productos al carrito.');
+      this.message = 'Debes iniciar sesión o registrarte para agregar productos al carrito.';
+      this.messageColor = 'red'; 
     } else if (this.product) {
       this.cartService.addToCart(this.product); 
-      alert('Producto agregado al carrito'); 
+      this.message = 'Producto agregado al carrito';
+      this.messageColor = 'green'; 
     }
+
+    setTimeout(() => {
+      this.message = '';
+    }, 2000);
   }
 }

@@ -6,10 +6,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   loginError: string | null = null;
+  message: string = ''; 
+  messageColor: string = ''; 
 
   constructor(
     private fb: FormBuilder,
@@ -30,8 +33,12 @@ export class LoginComponent implements OnInit {
       this.authService.login(email, password).subscribe({
         next: (isLoggedIn) => {
           if (isLoggedIn) {
-            alert('Inicio de sesión exitoso');
-            this.router.navigate(['/home']);
+            this.message = 'Sesion iniciada correctamente!';
+          this.messageColor = 'green'; 
+          setTimeout(() => {
+            this.message = ''; 
+            this.router.navigate(['/home']); 
+          }, 2000);
           } else {
             this.loginError = 'Usuario o contraseña incorrecto';
           }

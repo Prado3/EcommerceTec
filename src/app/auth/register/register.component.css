@@ -1,0 +1,80 @@
+/* Estilo base para el formulario */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  input.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border 0.3s ease;
+  }
+  
+  input.form-control:focus {
+    border-color: #007bff; /* Azul brillante al enfocarse */
+    outline: none;
+  }
+  
+  button.btn-primary {
+    background-color: #007bff; /* Azul brillante */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3; /* Azul oscuro al pasar el cursor */
+  }
+  
+  /* Mensaje de error o éxito */
+  .message {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .success {
+    color: #28a745; /* Verde para éxito */
+  }
+  
+  .error {
+    color: #dc3545; /* Rojo para error */
+  }
+  
+  /* Estilo para los mensajes de alerta */
+  .alert {
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo */
+    border: 1px solid #f5c6cb;
+  }
+  

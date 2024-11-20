@@ -7,6 +7,7 @@ body {
   
   h1 {
     color: #007bff; 
+    color: #007bff; 
   }
   
   
@@ -22,9 +23,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 200vh; 
+    min-height: 200vh; 
   }
   
   .content {
+    flex: 1; 
     flex: 1; 
   }
   

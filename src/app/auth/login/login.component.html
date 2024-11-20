@@ -11,4 +11,7 @@
     <input id="password" formControlName="password" type="password" class="form-control" />
   </div>
   <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+  <div *ngIf="message" [style.color]="messageColor" class="message">
+    {{ message }}
+  </div>
 </form>

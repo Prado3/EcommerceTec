@@ -71,9 +71,27 @@
     color: white; 
   }
   
-  .success-message {
-    color: green;
+  .message {
+    font-size: 16px;
     font-weight: bold;
+    padding: 10px;
     margin-top: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .success {
+    background-color: #d4edda;
+    color: #155724; 
+    border: 1px solid #c3e6cb;
+  }
+  
+  .error {
+    background-color: #f8d7da;
+    color: #721c24; 
+    border: 1px solid #f5c6cb; 
   }
   

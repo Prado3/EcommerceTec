@@ -6,10 +6,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   registerForm!: FormGroup;
   registrationError: string | null = null;
+  message: string = ''; 
+  messageColor: string = ''; 
 
   constructor(
     private fb: FormBuilder,
@@ -29,8 +32,12 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
         next: () => {
-          alert('Usuario registrado con éxito');
-          this.router.navigate(['/login']);
+          this.message = 'Usuario registrado con exito!';
+          this.messageColor = 'green'; 
+          setTimeout(() => {
+            this.message = ''; 
+            this.router.navigate(['/login']); 
+          }, 2000);
         },
         error: err => {
           this.registrationError = err.message;

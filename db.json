@@ -71,13 +71,45 @@
       "name": "lucas",
       "lastName": "prado",
       "dni": "41669016"
+    },
+    {
+      "id": "9c7c",
+      "email": "lukas@gmail.com",
+      "password": "123456",
+      "name": "lucas",
+      "lastName": "prado",
+      "dni": "41669016"
+    },
+    {
+      "id": "547d",
+      "email": "lucas@mail.com",
+      "password": "123456",
+      "name": "lukas2",
+      "lastName": "prado",
+      "dni": "45693266"
+    },
+    {
+      "id": "49b7",
+      "email": "l@fdfg.com",
+      "password": "123456",
+      "name": "lucas",
+      "lastName": "prado",
+      "dni": "65662656"
+    },
+    {
+      "id": "011f",
+      "email": "sdf!@sfg.com",
+      "password": "123456",
+      "name": "f",
+      "lastName": "f",
+      "dni": "13242342"
     }
   ],
   "cards": [
     {
       "id": "1",
-      "holder": "John Doe",
-      "number": "4111111111111111",
+      "holder": "Juan Pérez",
+      "number": "4111112111111111",
       "expiration": "12/25",
       "cvv": "123",
       "type": "Visa"
@@ -85,7 +117,7 @@
     {
       "id": "2",
       "holder": "Ana García",
-      "number": "5500000000000004",
+      "number": "55007000000000004",
       "expiration": "11/24",
       "cvv": "456",
       "type": "MasterCard"
@@ -93,7 +125,7 @@
     {
       "id": "3",
       "holder": "Carlos López",
-      "number": "340000000000009",
+      "number": "3400000000000090",
       "expiration": "05/26",
       "cvv": "789",
       "type": "American Express"
