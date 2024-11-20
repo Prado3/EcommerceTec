@@ -2,54 +2,150 @@
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  background-color: #2c3e50;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #ecf0f1; 
 }
 
 h2, h3 {
   text-align: center;
+  color: #3498db; 
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 div {
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 label {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  color: #ecf0f1; 
+  font-weight: bold;
 }
 
 input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
+  border: 1px solid #34495e; 
+  border-radius: 5px;
   box-sizing: border-box;
+  background-color: #34495e; 
+  color: #ecf0f1; 
+}
+
+
+input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
 }
 
 button {
   width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
+  padding: 12px;
+  background-color: #4CAF50; 
   color: white;
   border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #45a049; 
+  transform: scale(1.02); 
 }
+
 
 .error-message {
-  color: red;
+  color: #e74c3c; 
   text-align: center;
   margin-top: 20px;
+  font-weight: bold;
 }
 
+
 .success-message {
-  color: green;
+  color: #4CAF50;
   text-align: center;
   margin-top: 20px;
   padding: 10px;
-  border: 2px solid green;
-  background-color: #e0f8e0;
-  border-radius: 5px;
+  border: 2px solid #4CAF50;
+  background-color: #e0f8e0; 
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+
+.receipt-container {
+  padding: 25px;
+  background-color: #34495e; 
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 30px auto;
+  color: #ecf0f1; 
+}
+
+.receipt-container h3 {
+  text-align: center;
+  color: #4CAF50; 
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.receipt-details {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #ecf0f1;
+}
+
+.receipt-details p {
+  margin: 8px 0;
+}
+
+.receipt-details strong {
+  color: #4CAF50; 
+}
+
+.receipt-details ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.receipt-details li {
+  background-color: #2c3e50;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #3498db; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.receipt-details li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); 
+}
+
+.receipt-details .total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #ecf0f1;
+  text-align: center;
+}
+
+.receipt-details .receipt-number {
+  font-size: 16px;
+  color: #95a5a6;
+  margin-top: 20px;
+  font-style: italic;
+  text-align: center;
 }

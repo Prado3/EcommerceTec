@@ -8,7 +8,7 @@ body {
   }
   
   h1 {
-    color: #007bff; /* Color de encabezados */
+    color: #007bff; 
   }
   
   
@@ -23,22 +23,20 @@ body {
   .app-container {
     display: flex;
     flex-direction: column;
-    min-height: 200vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+    min-height: 200vh; 
   }
   
   .content {
-    flex: 1; /* Empuja el footer hacia abajo */
+    flex: 1; 
   }
   
-  /* src/styles.css */
 
-/* Variables de color */
 :root {
   --primary-color: #3c58b6;
   --secondary-color: #ecf0f1;
 }
 
-/* Estilos globales */
+
 body {
   background-color: var(--primary-color);
   color: #333;
@@ -46,7 +44,7 @@ body {
   margin: 0;
 }
 
-/* --- Estilos del componente Home --- */
+
 .hero {
   text-align: center;
   padding: 50px;
@@ -91,7 +89,7 @@ body {
   color: #666;
 }
 
-/* --- Estilos del componente Header --- */
+
 .header {
   display: flex;
   align-items: center;
@@ -130,7 +128,7 @@ body {
   font-size: 1.8rem;
 }
 
-/* --- Estilos del componente Footer --- */
+
 .footer {
   background-color: #2c3e50;
   color: #ecf0f1;
@@ -205,8 +203,8 @@ body {
 }
 
 .logo:hover {
-  color: #ccc; /* Color al pasar el cursor */
-  text-decoration: none; /* Quita el subrayado al hacer hover */
+  color: #ccc; 
+  text-decoration: none; 
 }
 
   

@@ -7,13 +7,11 @@ import { map, catchError, tap, switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/users'; // Cambia esto por la URL de tu backend
+  private apiUrl = 'http://localhost:3000/users'; 
 
-  // Subjects para manejar el estado de autenticación y el nombre del usuario
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   private userNameSubject = new BehaviorSubject<string | null>(null);
 
-  // Observables públicos
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
   userName$ = this.userNameSubject.asObservable();
 
@@ -24,7 +22,7 @@ export class AuthService {
       params: new HttpParams().set('email', email).set('password', password)
     }).pipe(
       tap(users => {
-        if (users.length > 0) { // Si se encuentra al usuario
+        if (users.length > 0) { 
           const user = users[0];
           this.isLoggedInSubject.next(true);
           this.userNameSubject.next(user.name);
@@ -32,7 +30,7 @@ export class AuthService {
           this.isLoggedInSubject.next(false);
         }
       }),
-      map(users => users.length > 0), // Si el array tiene algún elemento, el usuario existe
+      map(users => users.length > 0),
       switchMap(isLoggedIn => {
         if (isLoggedIn) {
           return of(true);
@@ -40,7 +38,7 @@ export class AuthService {
           return throwError(() => new Error('Usuario o contraseña incorrecto'));
         }
       }),
-      catchError(() => of(false)) // En caso de error en la comunicación, devuelve 'false'
+      catchError(() => of(false)) 
     );
   }
   
