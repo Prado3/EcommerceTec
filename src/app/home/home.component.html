@@ -1,5 +1,6 @@
 <div class="hero">
   <h1>¡Bienvenido a Nuestra Tienda!</h1>
+  <p>Descubre nuestros productos destacados y encuentra lo que necesitas.</p>
   <button class="btn btn-primary" (click)="goToProducts()">Explorar Productos</button>
 </div>
 
@@ -7,7 +8,14 @@
   <h2>Productos Destacados</h2>
   <div class="product-card" *ngFor="let product of featuredProducts">
     <img [src]="product.image" alt="Producto" class="product-image" (click)="navigateToSomeRoute(product.id)" />
-    <h3>{{ product.title }}</h3>
-    <p>Precio: ${{ product.price }}</p>
+    <div class="product-details">
+      <h3>{{ product.title }}</h3>
+      <p class="product-price">Precio: ${{ product.price }}</p>
+    </div>
   </div>
+</div>
+<div class="promo-banner my-4">
+  <h2>¡Todos los envíos 100% gratuitos y a todo el pais!</h2>
+  <p>Compra ahora y aprovecha esta increíble promoción en todos nuestros productos.</p>
+  
 </div>

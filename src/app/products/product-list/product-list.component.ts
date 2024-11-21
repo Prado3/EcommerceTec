@@ -11,6 +11,7 @@ export class ProductListComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
   categories: string[] = [];
+  selectedCategory: string = 'all'; 
   successMessage: string = '';
 
   constructor(private productsService: ProductsService, private cartService: CartService) {}
@@ -29,13 +30,13 @@ export class ProductListComponent implements OnInit {
   }
 
   filterByCategory(category: string): void {
+    this.selectedCategory = category; 
     if (category === 'all') {
       this.filteredProducts = this.products;
     } else {
       this.filteredProducts = this.products.filter(product => product.category === category);
     }
   }
-
 
   sortByPrice(order: string): void {
     if (order === 'asc') {
@@ -44,7 +45,6 @@ export class ProductListComponent implements OnInit {
       this.filteredProducts.sort((a, b) => b.price - a.price);
     }
   }
-
 
   sortByPriceEvent(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;

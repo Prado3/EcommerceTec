@@ -1,36 +1,53 @@
 <div class="d-flex mt-4">
+  
   <div class="category-sidebar me-4">
     <h3>Categorías</h3>
-    <ul>
-      <li (click)="filterByCategory('all')">Todas las Categorías</li>
-      <li *ngFor="let category of categories" (click)="filterByCategory(category)">
+    <ul class="list-group">
+      <li 
+        class="list-group-item" 
+        [class.active]="selectedCategory === 'all'" 
+        (click)="filterByCategory('all')">
+        Todas las Categorías
+      </li>
+      <li 
+        *ngFor="let category of categories" 
+        class="list-group-item" 
+        [class.active]="selectedCategory === category" 
+        (click)="filterByCategory(category)">
         {{ category }}
       </li>
     </ul>
   </div>
 
-  <div class="sort-options ms-4">
-    <label for="sort-price">Ordenar por precio:</label>
-    <select id="sort-price" (change)="sortByPriceEvent($event)" class="form-select">
-      <option value="asc">Ascendente</option>
-      <option value="desc">Descendente</option>
-    </select>
-  </div>
+  
+  <div class="flex-grow-1">
+    
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Productos</h2>
+      <div class="sort-options">
+        <label for="sort-price">Ordenar por precio:</label>
+        <select id="sort-price" (change)="sortByPriceEvent($event)" class="form-select">
+          <option value="asc">Ascendente</option>
+          <option value="desc">Descendente</option>
+        </select>
+      </div>
+    </div>
 
-  <div *ngIf="filteredProducts.length > 0; else loading" class="product-catalog ms-4">
-    <div *ngFor="let product of filteredProducts" class="product-card">
-      <a [routerLink]="['/products', product.id]">
-        <img [src]="product.image" alt="{{ product.title }}" class="product-image img-fluid" />
-        <div class="product-info">
-          <h3>{{ product.title }}</h3>
-          <p class="product-price">Precio: ${{ product.price }}</p>
-        </div>
-      </a>
+    
+    <div *ngIf="filteredProducts.length > 0; else loading" class="product-catalog">
+      <div *ngFor="let product of filteredProducts" class="product-card">
+        <a [routerLink]="['/products', product.id]">
+          <img [src]="product.image" alt="{{ product.title }}" class="product-image img-fluid" />
+          <div class="product-info">
+            <h3>{{ product.title }}</h3>
+            <p class="product-price">Precio: ${{ product.price }}</p>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
-
 <ng-template #loading>
-<p>Cargando productos...</p>
+  <p>Cargando productos...</p>
 </ng-template>
