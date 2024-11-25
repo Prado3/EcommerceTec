@@ -53,20 +53,6 @@ export class CartComponent implements OnInit {
     this.total = this.cartService.getTotal();
   }
 
-  saveCart() {
-    this.cartService.saveCart().subscribe(
-      (response) => {
-        this.successMessage = 'Carrito guardado exitosamente!';
-        this.errorMessage = '';
-        console.log('Carrito guardado en el servidor:', response);
-      },
-      (error) => {
-        this.errorMessage = 'Error al guardar el carrito. Inténtalo de nuevo.';
-        this.successMessage = '';
-        console.error('Error al guardar el carrito:', error);
-      }
-    );
-  }
   clearCart() {
     this.cartService.clearCart();
     this.successMessage = 'Carrito vaciado exitosamente!';

@@ -111,6 +111,14 @@
       "email": "ms@hotmail.com",
       "password": "123456ms",
       "dni": "42282525"
+    },
+    {
+      "id": "4c76",
+      "name": "lucas",
+      "lastName": "prado",
+      "email": "lucas@gmail.com",
+      "password": "lucas12",
+      "dni": "45239966"
     }
   ],
   "cards": [

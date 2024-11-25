@@ -4,6 +4,12 @@
   <button class="btn btn-primary" (click)="goToProducts()">Explorar Productos</button>
 </div>
 
+<div class="promo-banner my-4">
+  <h2>¡Todos los envíos 100% gratuitos y a todo el pais!</h2>
+  <p>Compra ahora y aprovecha esta increíble promoción en todos nuestros productos.</p>
+  
+</div>
+
 <div class="product-grid">
   <h2>Productos Destacados</h2>
   <div class="product-card" *ngFor="let product of featuredProducts">
@@ -13,9 +19,4 @@
       <p class="product-price">Precio: ${{ product.price }}</p>
     </div>
   </div>
-</div>
-<div class="promo-banner my-4">
-  <h2>¡Todos los envíos 100% gratuitos y a todo el pais!</h2>
-  <p>Compra ahora y aprovecha esta increíble promoción en todos nuestros productos.</p>
-  
 </div>

@@ -59,10 +59,6 @@ export class CartService {
     return this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   }
 
-  saveCart(): Observable<string> {
-    return of('Carrito guardado exitosamente');
-  }
-
   clearCart() {
     this.cartItems = []; 
     this.cartSubject.next(this.cartItems); 
