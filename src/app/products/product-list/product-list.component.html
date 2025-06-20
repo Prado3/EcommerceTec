@@ -48,6 +48,11 @@
   </div>
 </div>
 
+<ng-container *ngIf="searchTerm && filteredProducts.length === 0">
+  <p class="no-results">No se encontraron productos con ese criterio.</p>
+</ng-container>
+
+
 <ng-template #loading>
   <p>Cargando productos...</p>
 </ng-template>

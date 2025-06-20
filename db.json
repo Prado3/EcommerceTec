@@ -119,6 +119,14 @@
       "email": "lucas@gmail.com",
       "password": "lucas12",
       "dni": "45239966"
+    },
+    {
+      "id": "d783",
+      "name": "lucas",
+      "lastName": "prado",
+      "email": "lukasp@gmail.com",
+      "password": "123456lp",
+      "dni": "41566253"
     }
   ],
   "cards": [

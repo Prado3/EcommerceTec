@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { CartService } from '../../cart/cart.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -13,21 +14,30 @@ export class ProductListComponent implements OnInit {
   categories: string[] = [];
   selectedCategory: string = 'all'; 
   successMessage: string = '';
+  searchTerm: string = '';
 
-  constructor(private productsService: ProductsService, private cartService: CartService) {}
+
+  constructor(private productsService: ProductsService, private cartService: CartService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.productsService.getProducts().subscribe(
-      (data) => {
-        this.products = data;
-        this.filteredProducts = data; 
-        this.categories = [...new Set(data.map(product => product.category))]; 
-      },
-      (error) => {
-        console.error('Error al cargar los productos:', error);
-      }
-    );
-  }
+  this.productsService.getProducts().subscribe(
+    (data) => {
+      this.products = data;
+      this.categories = [...new Set(data.map(product => product.category))];
+
+      this.route.queryParams.subscribe(params => {
+  this.searchTerm = params['search']?.toLowerCase() || '';
+  this.filteredProducts = this.searchTerm
+    ? this.products.filter(p =>
+        p.title.toLowerCase().includes(this.searchTerm) || 
+        p.description.toLowerCase().includes(this.searchTerm)
+      )
+    : this.products;
+});
+    },
+    (error) => console.error('Error al cargar los productos:', error)
+  );
+}
 
   filterByCategory(category: string): void {
     this.selectedCategory = category; 
