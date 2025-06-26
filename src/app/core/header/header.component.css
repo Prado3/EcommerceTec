@@ -73,3 +73,17 @@
   font-size: 1.5rem;
   color: #ffffff;
 }
+
+.btn-history {
+  background-color: #6c757d; 
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-history:hover {
+  background-color: #5a6268;
+  color: #fff;
+}
