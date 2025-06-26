@@ -10,10 +10,12 @@ import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
+import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PurchaseHistoryComponent
   ],
   imports: [
     BrowserModule, 

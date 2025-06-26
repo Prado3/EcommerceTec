@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   onSearch(): void {
   if (this.searchTerm.trim()) {
     this.router.navigate(['/products'], { queryParams: { search: this.searchTerm } });
-    this.searchTerm = ''; // Limpia el campo después de buscar
+    this.searchTerm = ''; 
     }
   }
 
@@ -38,4 +38,8 @@ export class HeaderComponent implements OnInit {
   logout(): void {
     this.authService.logout(); 
   }
+  goToHistory(): void {
+  this.router.navigate(['/purchase-history']);
+}
+
 }

@@ -7,8 +7,7 @@ import { map, catchError, tap, switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/users'; 
-
+  private apiUrl = 'http://localhost:3000/users';
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   private userNameSubject = new BehaviorSubject<string | null>(null);
 
@@ -22,15 +21,16 @@ export class AuthService {
       params: new HttpParams().set('email', email).set('password', password)
     }).pipe(
       tap(users => {
-        if (users.length > 0) { 
+        if (users.length > 0) {
           const user = users[0];
           this.isLoggedInSubject.next(true);
           this.userNameSubject.next(user.name);
+          localStorage.setItem('userEmail', email); 
         } else {
           this.isLoggedInSubject.next(false);
         }
       }),
-      map(users => users.length > 0), 
+      map(users => users.length > 0),
       switchMap(isLoggedIn => {
         if (isLoggedIn) {
           return of(true);
@@ -38,10 +38,9 @@ export class AuthService {
           return throwError(() => new Error('Usuario o contraseña incorrecto'));
         }
       }),
-      catchError(() => of(false)) 
+      catchError(() => of(false))
     );
   }
-  
 
   register(user: { email: string; password: string; name: string; lastName: string }): Observable<any> {
     return this.http.get<any[]>(this.apiUrl, {
@@ -64,5 +63,10 @@ export class AuthService {
   logout(): void {
     this.isLoggedInSubject.next(false);
     this.userNameSubject.next(null);
+    localStorage.removeItem('userEmail'); 
+  }
+
+  getUserEmail(): string | null {
+    return localStorage.getItem('userEmail');
   }
 }

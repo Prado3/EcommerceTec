@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-checkout',
@@ -20,7 +21,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private http: HttpClient
   ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
@@ -77,19 +79,28 @@ export class CheckoutComponent implements OnInit {
   }
 
   generateReceipt(formValues: any): void {
-    const cartItems = this.cartService.getCartItems(); 
-    const receipt = {
-      name: formValues.cardHolder,
-      shippingAddress: formValues.shippingAddress,
-      city: formValues.city,
-      postalCode: formValues.postalCode,
-      products: cartItems.map(item => ({
-        name: item.title,
-        quantity: item.quantity
-      })),
-      total: this.total,
-      receiptNumber: Math.floor(Math.random() * 1000000) 
-    };
-    this.paymentReceipt = receipt;
-  }
+  const cartItems = this.cartService.getCartItems();
+  const userEmail = localStorage.getItem('userEmail'); 
+
+  const receipt = {
+    email: userEmail,
+    name: formValues.cardHolder,
+    shippingAddress: formValues.shippingAddress,
+    city: formValues.city,
+    postalCode: formValues.postalCode,
+    date: new Date().toISOString(),
+    products: cartItems.map(item => ({
+      name: item.title,
+      quantity: item.quantity,
+      image: item.image 
+    })),
+    total: this.total,
+    receiptNumber: Math.floor(Math.random() * 1000000)
+  };
+
+  this.paymentReceipt = receipt;
+
+  this.http.post('http://localhost:3000/purchases', receipt).subscribe();
+}
+
 }

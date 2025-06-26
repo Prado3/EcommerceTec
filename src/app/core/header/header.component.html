@@ -8,6 +8,10 @@
   <a routerLink="/" class="logo d-flex align-items-center btn btn-link text-decoration-none">
     <span>Mi Tienda</span>
   </a>
+  <button class="btn btn-history" *ngIf="isLoggedIn" (click)="goToHistory()">
+  Historial de Compras
+</button>
+
  <div class="search-container">
   <form class="search-form" (submit)="onSearch()">
     <input

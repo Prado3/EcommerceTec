@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2>Historial de Compras</h2>
+
+  <div *ngIf="purchases.length > 0; else noPurchases">
+    <div *ngFor="let purchase of purchases" class="card mb-4 shadow-sm p-3">
+      <div class="mb-2">
+        <strong>Fecha:</strong> {{ purchase.date | date:'short' }}<br />
+        <strong>Número de Recibo:</strong> #{{ purchase.receiptNumber }}<br />
+        <strong>Total:</strong> ${{ purchase.total }}
+      </div>
+
+      <div class="row">
+        <div *ngFor="let item of purchase.products" class="col-md-4 mb-3">
+          <div class="card h-100">
+            <img [src]="item.image" class="card-img-top" alt="{{ item.name }}" />
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">Cantidad: {{ item.quantity }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noPurchases>
+    <p>No hay historial de compras disponible.</p>
+  </ng-template>
+</div>

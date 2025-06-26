@@ -154,5 +154,97 @@
       "cvv": "789",
       "type": "American Express"
     }
+  ],
+  "purchases": [
+    {
+      "id": "f381",
+      "email": null,
+      "name": "Carlos López",
+      "shippingAddress": "Avellaneda",
+      "city": "Mar del Plata",
+      "postalCode": "7602",
+      "date": "2025-06-20T17:46:33.219Z",
+      "products": [
+        {
+          "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+          "quantity": 1,
+          "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+        }
+      ],
+      "total": 109.95,
+      "receiptNumber": 450020
+    },
+    {
+      "id": "7d66",
+      "email": null,
+      "name": "Carlos López",
+      "shippingAddress": "Avellaneda",
+      "city": "Mar del Plata",
+      "postalCode": "7602",
+      "date": "2025-06-20T17:53:38.371Z",
+      "products": [
+        {
+          "name": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+          "quantity": 1,
+          "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+        }
+      ],
+      "total": 695,
+      "receiptNumber": 796485
+    },
+    {
+      "id": "3efb",
+      "email": "lukasprado8@gmail.com",
+      "name": "Carlos López",
+      "shippingAddress": "Avellaneda",
+      "city": "Mar del Plata",
+      "postalCode": "7602",
+      "date": "2025-06-20T18:00:48.367Z",
+      "products": [
+        {
+          "name": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+          "quantity": 1,
+          "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+        }
+      ],
+      "total": 695,
+      "receiptNumber": 196542
+    },
+    {
+      "id": "6559",
+      "email": "lukasprado8@gmail.com",
+      "name": "Carlos López",
+      "shippingAddress": "Avellaneda",
+      "city": "Mar del Plata",
+      "postalCode": "7602",
+      "date": "2025-06-20T18:03:06.811Z",
+      "products": [
+        {
+          "name": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+          "quantity": 2,
+          "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+        }
+      ],
+      "total": 21.98,
+      "receiptNumber": 973686
+    },
+    {
+      "id": "44dd",
+      "email": "lukasprado8@gmail.com",
+      "name": "Carlos López",
+      "shippingAddress": "aaaa",
+      "city": "Buenos Aires",
+      "postalCode": "7600",
+      "date": "2025-06-26T22:44:26.204Z",
+      "products": [
+        {
+          "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+          "quantity": 1,
+          "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+        }
+      ],
+      "total": 109.95,
+      "receiptNumber": 717696
+    }
   ]
 }

@@ -1,0 +1,48 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.mb-4 {
+  background-color: #f8f9fa;
+  border-left: 5px solid #007bff;
+}
+
+p {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 140px;
+  }
+}

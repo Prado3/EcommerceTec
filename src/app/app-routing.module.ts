@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'checkout', component: CheckoutComponent},
+  { path: 'purchase-history', component: PurchaseHistoryComponent },
   { path: '**', redirectTo: 'products' }  
 ];
 
