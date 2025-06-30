@@ -127,6 +127,14 @@
       "email": "lukasp@gmail.com",
       "password": "123456lp",
       "dni": "41566253"
+    },
+    {
+      "id": "f5e4",
+      "name": "luu",
+      "lastName": "AAA",
+      "email": "luu@gmail.com",
+      "password": "Boca123456",
+      "dni": "13312514"
     }
   ],
   "cards": [
@@ -245,6 +253,60 @@
       ],
       "total": 109.95,
       "receiptNumber": 717696
+    },
+    {
+      "id": "4ea3",
+      "email": "luu@gmail.com",
+      "name": "Carlos López",
+      "shippingAddress": "aaaa",
+      "city": "Buenos Aires",
+      "postalCode": "7600",
+      "date": "2025-06-28T22:35:12.553Z",
+      "products": [
+        {
+          "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+          "quantity": 1,
+          "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+        }
+      ],
+      "total": 109.95,
+      "receiptNumber": 384926
+    },
+    {
+      "id": "40ed",
+      "email": null,
+      "name": "Carlos López",
+      "shippingAddress": "aaaa",
+      "city": "Buenos Aires",
+      "postalCode": "7600",
+      "date": "2025-06-30T15:23:59.983Z",
+      "products": [
+        {
+          "name": "Mens Casual Premium Slim Fit T-Shirts ",
+          "quantity": 1,
+          "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+        }
+      ],
+      "total": 22.3,
+      "receiptNumber": 141527
+    },
+    {
+      "id": "4ba3",
+      "email": "luu@gmail.com",
+      "name": "Carlos López",
+      "shippingAddress": "aaaa",
+      "city": "Mar del Plata",
+      "postalCode": "7600",
+      "date": "2025-06-30T15:50:17.477Z",
+      "products": [
+        {
+          "name": "Mens Cotton Jacket",
+          "quantity": 1,
+          "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+        }
+      ],
+      "total": 55.99,
+      "receiptNumber": 676060
     }
   ]
 }
