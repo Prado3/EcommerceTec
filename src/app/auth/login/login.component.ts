@@ -27,27 +27,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login(email, password).subscribe({
-        next: (isLoggedIn) => {
-          if (isLoggedIn) {
-            this.message = 'Sesion iniciada correctamente!';
+onSubmit() {
+  if (this.loginForm.valid) {
+    const { email, password } = this.loginForm.value;
+    this.authService.login(email, password).subscribe({
+      next: (isLoggedIn) => {
+        if (isLoggedIn) {
+          this.message = '¡Sesión iniciada correctamente!';
           this.messageColor = 'green'; 
           setTimeout(() => {
             this.message = ''; 
-            this.router.navigate(['/home']); 
+            this.router.navigate(['']); 
           }, 2000);
-          } else {
-            this.loginError = 'Usuario o contraseña incorrecto';
-          }
-        },
-        error: (err) => {
-          this.loginError = 'Error al iniciar sesión';
-          console.error('Error en el inicio de sesión:', err);
+        } else {
+          this.loginError = 'Usuario o contraseña incorrectos';
         }
-      });
-    }
+      },
+      error: (err) => {
+        this.loginError = 'Error al iniciar sesión';
+        console.error('Error en el inicio de sesión:', err);
+      }
+    });
   }
+}
+
 }

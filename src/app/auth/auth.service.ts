@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,12 @@ export class AuthService {
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
   userName$ = this.userNameSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+constructor(
+  private http: HttpClient,
+  private router: Router
+) {}
+
+
 
   login(email: string, password: string): Observable<boolean> {
     return this.http.get<any[]>(this.apiUrl, {
@@ -60,11 +66,14 @@ export class AuthService {
     );
   }
 
-  logout(): void {
-    this.isLoggedInSubject.next(false);
-    this.userNameSubject.next(null);
-    localStorage.removeItem('userEmail'); 
-  }
+logout(): void {
+  this.isLoggedInSubject.next(false);
+  this.userNameSubject.next(null);
+  localStorage.removeItem('userEmail'); 
+  
+  this.router.navigate(['']); 
+}
+
 
   getUserEmail(): string | null {
     return localStorage.getItem('userEmail');
